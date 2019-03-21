@@ -36,6 +36,7 @@
             var email=$('#email').val();
             var pwd1=$('#pwd1').val();
             var url=$('#url').val();
+            console.log(url);
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -47,7 +48,7 @@
                 success :   function(d){
                     if(d.error==0){
                         alert(d.msg);
-                        window.location.href=url;
+                        window.location=url;
                     }else{
                         alert(d.msg);
                         //window.location.href='';

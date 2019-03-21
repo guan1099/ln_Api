@@ -33,7 +33,7 @@
                 success :   function(d){
                     if(d.error==0){
                         alert(d.msg);
-                        window.location.href = + url;
+                        window.location= + url;
                     }else{
                         alert(d.msg);
                         //window.location.href='';
