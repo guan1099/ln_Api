@@ -33,7 +33,7 @@
                 success :   function(d){
                     if(d.error==0){
                         alert(d.msg);
-                        location.href='"'+url+'"';
+                        history.go(-1);
                     }else{
                         alert(d.msg);
                         //window.location.href='';
