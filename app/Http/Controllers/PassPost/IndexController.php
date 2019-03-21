@@ -10,7 +10,11 @@ class IndexController extends Controller
 {
     //
     public function register(){
-        return view('user.register');
+        $url=$_GET['url'];
+        $data=[
+            'url'=>$url
+        ];
+        return view('user.register',$data);
     }
     public function registerdo(Request $request){
         if(empty($request->input('username'))){
@@ -76,7 +80,11 @@ class IndexController extends Controller
         }
     }
     public function login(){
-        return view('user.login');
+        $url=$_GET['url'];
+        $data=[
+            'url'=>$url
+        ];
+        return view('user.login',$data);
     }
     public function logindo(Request $request){
         $username=$request->input('username');

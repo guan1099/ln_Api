@@ -1,5 +1,6 @@
 <h1 align="center">注册</h1>
-    <table width="300px" align="center">
+<input type="hidden" value="{{$url}}" id="url">
+    <table width="300px" align="center" >
         <tr>
             <td>账号：</td>
             <td><input type="text" class="" style="width:200px;" id="username" placeholder="账号"></td>
@@ -34,6 +35,7 @@
             var age=$('#age').val();
             var email=$('#email').val();
             var pwd1=$('#pwd1').val();
+            var url=$('#url').val();
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -45,7 +47,7 @@
                 success :   function(d){
                     if(d.error==0){
                         alert(d.msg);
-                        window.location.href = "http://api11.tactshan.com";
+                        window.location.href = +url;
                     }else{
                         alert(d.msg);
                         //window.location.href='';
