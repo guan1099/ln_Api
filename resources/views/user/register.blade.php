@@ -45,7 +45,7 @@
                 success :   function(d){
                     if(d.error==0){
                         alert(d.msg);
-                        window.location.href = "/good/list";
+                        window.location.href = "http://api11.tactshan.com";
                     }else{
                         alert(d.msg);
                         //window.location.href='';

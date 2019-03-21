@@ -60,7 +60,10 @@ class IndexController extends Controller
             //header("refresh:2;/test/list");
             $arr=[
                 'error'=>0,
-                'msg'=>'注册成功'
+                'msg'=>'注册成功',
+                'data'=>[
+                    'token'=>$token
+                ]
             ];
             echo json_encode($arr);
         }else{
@@ -85,12 +88,15 @@ class IndexController extends Controller
         if($res){
             if(password_verify($pwd,$res->pwd)){
                 $token = substr(md5(time().mt_rand(1,99999)),10,20);
-                setcookie('uid',$res->uid,time()+86400,'/','',false,true);
-                setcookie('token',$token,time()+86400,'/','',false,true);
+                setcookie('uid',$res->uid,time()+86400,'/','tactshan.com',false,true);
+                setcookie('token',$token,time()+86400,'/','tactshan.com',false,true);
                 //header('refresh:1;/goodslist');
                 $arr=[
                     'error'=>0,
-                    'msg'=>'登录成功'
+                    'msg'=>'登录成功',
+                    'data'=>[
+                        'token'=>$token
+                    ]
                 ];
                 echo json_encode($arr);
             }else{
