@@ -55,8 +55,8 @@ class IndexController extends Controller
         $uid=UserModel::insertGetId($data);
         if($uid){
             $token = substr(md5(time().mt_rand(1,99999)),10,20);
-            setcookie('uid',$uid,time()+86400,'/','',false,true);
-            setcookie('token',$token,time()+86400,'/','',false,true);
+            setcookie('uid',$uid,time()+86400,'/','tactshan.com',false,true);
+            setcookie('token',$token,time()+86400,'/','tactshan.com',false,true);
             //header("refresh:2;/test/list");
             $arr=[
                 'error'=>0,
@@ -115,8 +115,5 @@ class IndexController extends Controller
             ];
             echo json_encode($arr);
         }
-    }
-    public function list(){
-        echo "ok";
     }
 }
