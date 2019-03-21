@@ -21,7 +21,7 @@
             var username=$('#username').val();
             var pwd=$('#pwd').val();
             var url=$('#url').val();
-            console.log(username);
+            console.log(url);
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
