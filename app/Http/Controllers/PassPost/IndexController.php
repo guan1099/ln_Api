@@ -5,6 +5,7 @@ namespace App\Http\Controllers\PassPost;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\UserModel;
+use Illuminate\Support\Facades\Redis;
 
 class IndexController extends Controller
 {
@@ -95,10 +96,12 @@ class IndexController extends Controller
         $res=UserModel::where($where)->first();
         if($res){
             if(password_verify($pwd,$res->pwd)){
+                $redis_token='redis_token_str:'.$res->uid.'';
                 $token = substr(md5(time().mt_rand(1,99999)),10,20);
                 setcookie('uid',$res->uid,time()+86400,'/','tactshan.com',false,true);
                 setcookie('token',$token,time()+86400,'/','tactshan.com',false,true);
                 //header('refresh:1;/goodslist');
+                Redis::hset($redis_token,'token',$token);
                 $arr=[
                     'error'=>0,
                     'msg'=>'登录成功',
