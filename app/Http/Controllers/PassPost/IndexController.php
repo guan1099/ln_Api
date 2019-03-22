@@ -11,11 +11,7 @@ class IndexController extends Controller
 {
     //
     public function register(){
-        $url=$_GET['url'];
-        $data=[
-            'url'=>$url
-        ];
-        return view('user.register',$data);
+        return view('user.register');
     }
     public function registerdo(Request $request){
         if(empty($request->input('username'))){
@@ -81,11 +77,7 @@ class IndexController extends Controller
         }
     }
     public function login(){
-        $url=$_GET['url'];
-        $data=[
-            'url'=>$url
-        ];
-        return view('user.login',$data);
+        return view('user.login');
     }
     public function logindo(Request $request){
         $username=$request->input('username');

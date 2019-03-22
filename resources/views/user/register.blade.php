@@ -1,5 +1,4 @@
 <h1 align="center">注册</h1>
-<input type="hidden" value="{{$url}}" id="url">
     <table width="300px" align="center" >
         <tr>
             <td>账号：</td>
@@ -35,7 +34,6 @@
             var age=$('#age').val();
             var email=$('#email').val();
             var pwd1=$('#pwd1').val();
-            var url=$('#url').val();
             console.log(url);
             $.ajax({
                 headers: {

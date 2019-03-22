@@ -1,5 +1,4 @@
 <h1 align="center">登录</h1>
-<input type="hidden" value="{{$url}}" id="url">
     <table align="center">
         <tr>
             <td><input type="text" class="form-control" style="width:200px;" id="username" placeholder="账号"></td>
@@ -20,8 +19,6 @@
         $('#btn').click(function(){
             var username=$('#username').val();
             var pwd=$('#pwd').val();
-            var url=$('#url').val();
-            console.log(url);
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
