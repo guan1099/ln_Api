@@ -55,10 +55,12 @@ class IndexController extends Controller
         ];
         $uid=UserModel::insertGetId($data);
         if($uid){
+            $redis_token='redis_token_str:'.$uid.'';
             $token = substr(md5(time().mt_rand(1,99999)),10,20);
             setcookie('uid',$uid,time()+86400,'/','tactshan.com',false,true);
             setcookie('token',$token,time()+86400,'/','tactshan.com',false,true);
             //header("refresh:2;/test/list");
+            Redis::hset($redis_token,'token',$token);
             $arr=[
                 'error'=>0,
                 'msg'=>'注册成功',
@@ -82,6 +84,7 @@ class IndexController extends Controller
     public function logindo(Request $request){
         $username=$request->input('username');
         $pwd=$request->input('pwd');
+        $type=$request->input('type');
         $where=[
             'username'=>$username
         ];
@@ -93,7 +96,7 @@ class IndexController extends Controller
                 setcookie('uid',$res->uid,time()+86400,'/','tactshan.com',false,true);
                 setcookie('token',$token,time()+86400,'/','tactshan.com',false,true);
                 //header('refresh:1;/goodslist');
-                Redis::hset($redis_token,'token',$token);
+                Redis::hset($redis_token,$type,$token);
                 $arr=[
                     'error'=>0,
                     'msg'=>'登录成功',
