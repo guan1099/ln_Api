@@ -96,6 +96,7 @@ class IndexController extends Controller
                 setcookie('uid',$res->uid,time()+86400,'/','tactshan.com',false,true);
                 setcookie('token',$token,time()+86400,'/','tactshan.com',false,true);
                 //header('refresh:1;/goodslist');
+                Redis::del($redis_token,$type);
                 Redis::hset($redis_token,$type,$token);
                 $arr=[
                     'error'=>0,
