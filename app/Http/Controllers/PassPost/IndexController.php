@@ -125,9 +125,20 @@ class IndexController extends Controller
             echo json_encode($arr);
         }
     }
-    public function quit(){
+    public function quit(Request $request){
         setcookie('uid',null,time()+86400,'/','tactshan.com',false,true);
         setcookie('token',null,time()+86400,'/','tactshan.com',false,true);
         header('refresh:2;https://qi.tactshan.com');
+    }
+    public function appquit(Request $request){
+        $type=$request->input('type');
+        $uid=$request->input('uid');
+        $redis_token='redis_token_str:'.$uid.'';
+        Redis::del($redis_token,$type);
+        $data=[
+            'error'=>0,
+            'msg'=>'退出成功'
+        ];
+        echo json_encode($data);
     }
 }
