@@ -122,4 +122,8 @@ class IndexController extends Controller
             echo json_encode($arr);
         }
     }
+    public function quit(){
+        setcookie('uid',null,time()+86400,'/','tactshan.com',false,true);
+        setcookie('token',null,time()+86400,'/','tactshan.com',false,true);
+    }
 }
