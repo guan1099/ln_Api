@@ -101,7 +101,9 @@ class IndexController extends Controller
                     'error'=>0,
                     'msg'=>'登录成功',
                     'data'=>[
-                        'token'=>$token
+                        'token'=>$token,
+                        'uid'=>$res->uid,
+                        'username'=>$username
                     ]
                 ];
                 echo json_encode($arr);
@@ -125,5 +127,6 @@ class IndexController extends Controller
     public function quit(){
         setcookie('uid',null,time()+86400,'/','tactshan.com',false,true);
         setcookie('token',null,time()+86400,'/','tactshan.com',false,true);
+        header('refresh:2;https://qi.tactshan.com');
     }
 }
