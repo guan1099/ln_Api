@@ -26,4 +26,4 @@ Route::post('/user/login','PassPost\IndexController@logindo');
 
 Route::get('/good/list','PassPost\IndexController@list');
 Route::get('/cookie/quit','PassPost\IndexController@quit');
-Route::get('/cookie/appquit','PassPost\IndexController@appquit');
+Route::post('/cookie/appquit','PassPost\IndexController@appquit');

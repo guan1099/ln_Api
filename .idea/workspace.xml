@@ -34,8 +34,8 @@
       <file leaf-file-name="IndexController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PassPost/IndexController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="137" column="8" selection-start-line="137" selection-start-column="8" selection-end-line="137" selection-end-column="8" />
+            <state relative-caret-position="456">
+              <caret line="139" column="25" lean-forward="true" selection-start-line="139" selection-start-column="25" selection-end-line="139" selection-end-column="25" />
               <folding>
                 <element signature="e#49#77#0#PHP" expanded="true" />
                 <element signature="e#233#304#0#PHP" />
@@ -104,8 +104,8 @@
         <option value="$PROJECT_DIR$/resources/views/user/register.blade.php" />
         <option value="$PROJECT_DIR$/config/database.php" />
         <option value="$PROJECT_DIR$/resources/views/user/login.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/PassPost/IndexController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/PassPost/IndexController.php" />
       </list>
     </option>
   </component>
@@ -287,12 +287,12 @@
       <updated>1553137024720</updated>
       <workItem from="1553137032281" duration="19984000" />
       <workItem from="1553215455484" duration="15642000" />
-      <workItem from="1553301136314" duration="7037000" />
+      <workItem from="1553301136314" duration="7703000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42663000" />
+    <option name="totallyTimeSpent" value="43329000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -471,8 +471,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PassPost/IndexController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="137" column="8" selection-start-line="137" selection-start-column="8" selection-end-line="137" selection-end-column="8" />
+        <state relative-caret-position="456">
+          <caret line="139" column="25" lean-forward="true" selection-start-line="139" selection-start-column="25" selection-end-line="139" selection-end-column="25" />
           <folding>
             <element signature="e#49#77#0#PHP" expanded="true" />
             <element signature="e#233#304#0#PHP" />
