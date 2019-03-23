@@ -134,7 +134,7 @@ class IndexController extends Controller
         $type=$request->input('type');
         $uid=$request->input('uid');
         $redis_token='redis_token_str:'.$uid.'';
-        Redis::del($redis_token,$type);
+        Redis::hdel($redis_token,$type);
         $data=[
             'error'=>0,
             'msg'=>'退出成功'
