@@ -141,7 +141,7 @@ class IndexController extends Controller
             'error'=>0,
             'msg'=>'退出成功'
         ];
-        UserModel::where(['uid'=>$_COOKIE['uid']])->update(['type'=>1]);
+        UserModel::where(['uid'=>$uid])->update(['type'=>1]);
         echo json_encode($data);
     }
 }
