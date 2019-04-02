@@ -8,6 +8,6 @@ class UserModel extends Model
 {
     //
     protected $table="p_users";
-    public $updated_at=false;
+    public $timestamps = false;
     protected $primaryKey = 'uid';
 }

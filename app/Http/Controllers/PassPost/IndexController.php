@@ -127,6 +127,7 @@ class IndexController extends Controller
     }
     public function quit(Request $request){
         UserModel::where(['uid'=>$_COOKIE['uid']])->update(['type'=>1]);
+
         setcookie('uid',null,time()+86400,'/','tactshan.com',false,true);
         setcookie('token',null,time()+86400,'/','tactshan.com',false,true);
 
