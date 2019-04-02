@@ -92,8 +92,8 @@ class IndexController extends Controller
             if(password_verify($pwd,$res->pwd)){
                 $redis_token='redis_token_str:'.$res->uid;
                 $token = substr(md5(time().mt_rand(1,99999)),10,20);
-                setcookie('uid',$res->uid,time()+86400,'/','',false,true);
-                setcookie('token',$token,time()+86400,'/','',false,true);
+                setcookie('uid',$res->uid,time()+86400,'/','tactshan.com',false,true);
+                setcookie('token',$token,time()+86400,'/','tactshan.com',false,true);
                 //header('refresh:1;/goodslist');
                 Redis::hdel($redis_token,'token');
                 Redis::hset($redis_token,'token',$token);
@@ -127,7 +127,6 @@ class IndexController extends Controller
     public function quit(Request $request){
         setcookie('uid',null,time()+86400,'/','tactshan.com',false,true);
         setcookie('token',null,time()+86400,'/','tactshan.com',false,true);
-        header('refresh:2;https://qi.tactshan.com');
     }
     public function appquit(Request $request){
         $type=$request->input('type');
