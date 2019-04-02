@@ -8,8 +8,7 @@
         </tr>
         <tr>
             <td>
-                <button type="text" id="btn" style="width:98px;">登录</button>
-                <button type="text" id="btn2" style="width:98px;">注册</button>
+                <button type="text" id="btn" style="width:200px;">登录</button>
             </td>
         </tr>
     </table>
@@ -25,21 +24,17 @@
                 },
                 url     :   '/user/login',
                 type    :   'post',
-                data    :   {username:username,pwd:pwd,type:'web'},
+                data    :   {username:username,pwd:pwd},
                 dataType:   'json',
                 success :   function(d){
                     if(d.error==0){
                         alert(d.msg);
-                        history.go(-1);
                     }else{
                         alert(d.msg);
                         //window.location.href='';
                     }
                 }
             });
-        });
-        $('#btn2').click(function(){
-            location.href='/user/register';
         });
     });
 </script>

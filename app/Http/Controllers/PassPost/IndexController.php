@@ -84,20 +84,19 @@ class IndexController extends Controller
     public function logindo(Request $request){
         $username=$request->input('username');
         $pwd=$request->input('pwd');
-        $type=$request->input('type');
         $where=[
             'username'=>$username
         ];
         $res=UserModel::where($where)->first();
         if($res){
             if(password_verify($pwd,$res->pwd)){
-                $redis_token='redis_token_str:'.$res->uid.'';
+                $redis_token='redis_token_str:'.$res->uid;
                 $token = substr(md5(time().mt_rand(1,99999)),10,20);
-                setcookie('uid',$res->uid,time()+86400,'/','tactshan.com',false,true);
-                setcookie('token',$token,time()+86400,'/','tactshan.com',false,true);
+                setcookie('uid',$res->uid,time()+86400,'/','',false,true);
+                setcookie('token',$token,time()+86400,'/','',false,true);
                 //header('refresh:1;/goodslist');
-                Redis::hdel($redis_token,$type);
-                Redis::hset($redis_token,$type,$token);
+                Redis::hdel($redis_token,'token');
+                Redis::hset($redis_token,'token',$token);
                 $arr=[
                     'error'=>0,
                     'msg'=>'登录成功',

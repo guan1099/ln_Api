@@ -34,7 +34,6 @@
             var age=$('#age').val();
             var email=$('#email').val();
             var pwd1=$('#pwd1').val();
-            console.log(url);
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
