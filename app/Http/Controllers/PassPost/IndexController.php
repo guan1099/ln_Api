@@ -97,6 +97,7 @@ class IndexController extends Controller
                 //header('refresh:1;/goodslist');
                 Redis::hdel($redis_token,'token');
                 Redis::hset($redis_token,'token',$token);
+                UserModel::where(['uid'=>$_COOKIE['uid']])->update(['type'=>2]);
                 $arr=[
                     'error'=>0,
                     'msg'=>'登录成功',
@@ -127,6 +128,7 @@ class IndexController extends Controller
     public function quit(Request $request){
         setcookie('uid',null,time()+86400,'/','tactshan.com',false,true);
         setcookie('token',null,time()+86400,'/','tactshan.com',false,true);
+        UserModel::where(['uid'=>$_COOKIE['uid']])->update(['type'=>1]);
     }
     public function appquit(Request $request){
         $type=$request->input('type');
@@ -137,6 +139,7 @@ class IndexController extends Controller
             'error'=>0,
             'msg'=>'退出成功'
         ];
+        UserModel::where(['uid'=>$_COOKIE['uid']])->update(['type'=>1]);
         echo json_encode($data);
     }
 }
