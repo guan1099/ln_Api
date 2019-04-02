@@ -97,7 +97,7 @@ class IndexController extends Controller
                 //header('refresh:1;/goodslist');
                 Redis::hdel($redis_token,'token');
                 Redis::hset($redis_token,'token',$token);
-                UserModel::where(['uid'=>$_COOKIE['uid']])->update(['type'=>2]);
+                UserModel::where(['uid'=>$res->uid])->update(['type'=>2]);
                 $arr=[
                     'error'=>0,
                     'msg'=>'登录成功',
