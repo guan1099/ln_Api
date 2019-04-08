@@ -24,7 +24,7 @@
                 },
                 url     :   '/user/login',
                 type    :   'post',
-                data    :   {username:username,pwd:pwd},
+                data    :   {username:username,pwd:pwd,type:'app'},
                 dataType:   'json',
                 success :   function(d){
                     if(d.error==0){

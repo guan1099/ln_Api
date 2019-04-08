@@ -83,6 +83,7 @@ class IndexController extends Controller
     }
     public function logindo(Request $request){
         $username=$request->input('username');
+        $type=$request->input('type');
         $pwd=$request->input('pwd');
         $where=[
             'username'=>$username
@@ -95,8 +96,8 @@ class IndexController extends Controller
                 setcookie('uid',$res->uid,time()+86400,'/','tactshan.com',false,true);
                 setcookie('token',$token,time()+86400,'/','tactshan.com',false,true);
                 //header('refresh:1;/goodslist');
-                Redis::hdel($redis_token,'token');
-                Redis::hset($redis_token,'token',$token);
+                Redis::hdel($redis_token,$type);
+                Redis::hset($redis_token,$type,$token);
                 UserModel::where(['uid'=>$res->uid])->update(['type'=>2]);
                 $arr=[
                     'error'=>0,
